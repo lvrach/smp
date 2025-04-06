@@ -1,0 +1,9 @@
+name: linear-mcp
+repository: git@github.com:cosmix/linear-mcp.git
+branch: main
+dockerfile: bun-builder/Dockerfile
+environment:
+  - name: LINEAR_API_KEY
+    type: secret
+    description: "Linear API key"
+    required: true
