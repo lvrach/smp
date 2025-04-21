@@ -45,9 +45,9 @@ func InstallCommand() *cli.Command {
 			defer builder.CleanUp() // Clean up temporary directory when done
 
 			// Build the image from the repository
-			tag, err := builder.BuildFromRepo()
+			tag, err := builder.DockerImage()
 			if err != nil {
-				return err
+				return fmt.Errorf("building image: %w", err)
 			}
 
 			// Load or create MCP state

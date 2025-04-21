@@ -1,0 +1,40 @@
+name: mcp-atlassian
+image: ghcr.io/sooperset/mcp-atlassian:latest
+environment:
+  # Confluence Configuration
+  - name: CONFLUENCE_URL
+    type: string
+    description: "Confluence URL (e.g., https://your-company.atlassian.net/wiki)"
+    required: true
+  - name: CONFLUENCE_USERNAME
+    type: string
+    description: "Confluence username (email)"
+    required: true
+  - name: CONFLUENCE_API_TOKEN
+    type: secret
+    description: "Confluence API token"
+    required: true
+
+  # Jira Configuration
+  - name: JIRA_URL
+    type: string
+    description: "Jira URL (e.g., https://your-company.atlassian.net)"
+    required: true
+  - name: JIRA_USERNAME
+    type: string
+    description: "Jira username (email)"
+    required: true
+  - name: JIRA_API_TOKEN
+    type: secret
+    description: "Jira API token"
+    required: true
+
+  # Optional SSL Verification Settings
+  - name: CONFLUENCE_SSL_VERIFY
+    type: boolean
+    description: "Enable/disable SSL verification for Confluence (default: true)"
+    required: false
+  - name: JIRA_SSL_VERIFY
+    type: boolean
+    description: "Enable/disable SSL verification for Jira (default: true)"
+    required: false

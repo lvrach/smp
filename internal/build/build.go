@@ -58,6 +58,17 @@ func (b *Builder) CleanUp() error {
 	return os.RemoveAll(b.TempDir)
 }
 
+func (b *Builder) DockerImage() (string, error) {
+
+	if b.Config.Repository != "" && b.Config.Dockerfile == "" {
+		return b.BuildFromRepo()
+	} else if b.Config.Image != "" {
+		return b.Config.Image, nil
+	}
+
+	return "", fmt.Errorf("not sure how to build the image for MCP '%s'", b.Config.Name)
+}
+
 // BuildFromRepo clones a repository and builds a Docker image
 func (b *Builder) BuildFromRepo() (string, error) {
 	// Clone the repository to a temporary directory

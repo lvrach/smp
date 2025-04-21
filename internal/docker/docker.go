@@ -38,7 +38,7 @@ func (b *Runner) Run() error {
 	}
 
 	// Add image name
-	args = append(args, tagPrefix+b.Config.Name)
+	args = append(args, b.State.LocalImageTag)
 
 	// Execute docker run command
 	cmd := exec.Command("docker", args...)

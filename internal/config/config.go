@@ -3,7 +3,8 @@ package config
 // MCPConfig represents the configuration for a Multi-Container Platform
 type MCPConfig struct {
 	Name            string                `yaml:"name"`
-	Repository      string                `yaml:"repository"`
+	Repository      string                `yaml:"repository,omitempty"`
+	Image           string                `yaml:"image,omitempty"`
 	Branch          string                `yaml:"branch,omitempty"`
 	Dockerfile      string                `yaml:"dockerfile,omitempty"`
 	EnvironmentVars []EnvironmentVariable `yaml:"environment,omitempty"`
